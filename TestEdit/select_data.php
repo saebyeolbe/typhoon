@@ -9,11 +9,11 @@ if (!$con){
 ?> 
 
 <?php
-$iname = $_POST['iname'];
+$ID=$_POST['item_id'];
 
-$query=$con->prepare("select ITEM_ID, ITEM_NAME, STOCK, UNITPRICE, COSTPRICE, SHORT_DESC, MERCHANT, COMMENTS from item where item_name='$iname'");
+$query=$con->prepare("select ITEM_ID, ITEM_NAME, STOCK, UNITPRICE, COSTPRICE, SHORT_DESC, MERCHANT, DETAILS, IMAGE, COMMENTS from item WHERE ITEM_ID='".$ID."'");
 $query->execute();
-$query->bind_result($id, $item_name, $stock, $unitprice, $costprice, $shortdesc, $merchant, $comments);
+$query->bind_result($ITEM_ID, $ITEM_NAME,$STOCK, $UNITPRICE, $COSTPRICE, $SHORT_DESC, $MERCHANT, $DETAILS, $IMAGE, $COMMENTS);
 echo "<table align='center' border='1'>";
 echo "<tr>";
 echo "<th>Id</th>";
@@ -28,14 +28,14 @@ echo "</tr>";
 while($query->fetch())
 {
 	echo "<tr>";
-	echo "<td>".$id."</td>";
-	echo "<td>".$item_name."</td>";
-	echo "<td>".$stock."</td>";
-	echo "<td>".$unitprice."</td>";
-	echo "<td>".$costprice."</td>";
-	echo "<td>".$shortdesc."</td>";
-	echo "<td>".$merchant."</td>";
-	echo "<td>".$comments."</td>";
+	echo "<td>".$ITEM_ID."</td>";
+	echo "<td>".$ITEM_NAME."</td>";
+	echo "<td>".$STOCK."</td>";
+	echo "<td>".$UNITPRICE."</td>";
+	echo "<td>".$COSTPRICE."</td>";
+	echo "<td>".$SHORT_DESC."</td>";
+	echo "<td>".$MERCHANT."</td>";
+	echo "<td>".$COMMENTS."</td>";
 	echo "</tr>";	
 	
 }
