@@ -1,0 +1,24 @@
+<tr>
+<td>itemname:</td>
+<td><input type="text" name="itemname" value="<?php echo $_GET['itemname']; ?>" /></td>
+</tr>
+<tr>
+<td>stock:</td>
+<td><input type="text" name="stock" value="<?php echo $_GET['stock']; ?>"/></td>
+</tr>
+<tr>
+<td>unitprice:</td>
+<td><input type="text" name="unitprice" value="<?php echo $_GET['unitprice']; ?>"/></td>
+</tr>
+<tr>
+<td>costprice:</td>
+<td><input type="text" name="costprice" value="<?php echo $_GET['costprice']; ?>"/></td>
+</tr>
+<tr>
+<td>shortdesc:</td>
+<td><input type="text" name="shortdesc" value="<?php echo $_GET['shortdesc']; ?>"/></td>
+</tr>
+<tr>
+<td>merchant:</td>
+<td><input type="text" name="merchant" value="<?php echo $_GET['merchant']; ?>"/></td>
+</tr> 
