@@ -9,9 +9,9 @@ if (!$con){
 ?> 
 
 <?php
-$item_name = $_POST['item_names'];
+$iname = $_POST['iname'];
 
-$query=$con->prepare("select ITEM_ID, ITEM_NAME, STOCK, UNITPRICE, COSTPRICE, SHORT_DESC, MERCHANT, COMMENTS from item where item_name='item_names'");
+$query=$con->prepare("select ITEM_ID, ITEM_NAME, STOCK, UNITPRICE, COSTPRICE, SHORT_DESC, MERCHANT, COMMENTS from item where item_name='$iname'");
 $query->execute();
 $query->bind_result($id, $item_name, $stock, $unitprice, $costprice, $shortdesc, $merchant, $comments);
 echo "<table align='center' border='1'>";
@@ -29,7 +29,7 @@ while($query->fetch())
 {
 	echo "<tr>";
 	echo "<td>".$id."</td>";
-	echo "<td>".$itemname."</td>";
+	echo "<td>".$item_name."</td>";
 	echo "<td>".$stock."</td>";
 	echo "<td>".$unitprice."</td>";
 	echo "<td>".$costprice."</td>";
