@@ -41,5 +41,16 @@ while($query->fetch())
 }
 echo "</table>";
 ?>
+
+<tr>
+<td>&nbsp;</td>
+<td align="right">
+<form action="index.php" method="post">
+<input type="submit"  value="Back" />
+</form>
+</td>
+</tr>
+
+
 </body>
 </html>

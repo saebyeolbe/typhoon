@@ -12,7 +12,7 @@ if(isset($_POST["insert"])){
 		$shortdesc=$_POST["shortdesc"];
 		$merchant=$_POST["merchant"];
 		$comments=$_POST["comments"];
-		$query=$connect->prepare("insert into item(ITEM_NAME, STOCK, UNITPRICE, COSTPRICE, SHORT_DESC, MERCHANT) values('$itemname', '$stock', '$unitprice', '$costprice', '$shortdesc', '$merchant', '$comments');");
+		$query=$connect->prepare("insert into item(ITEM_NAME, STOCK, UNITPRICE, COSTPRICE, SHORT_DESC, MERCHANT, COMMENTS) values('$itemname', '$stock', '$unitprice', '$costprice', '$shortdesc', '$merchant', '$comments');");
 		if($query->execute())
 		{
 			echo "<center>Record Inserted!</center><br>";
@@ -55,6 +55,12 @@ if(isset($_GET['operation'])){
 ?>
 <html>
 <body>
+	
+	<form action="select_data.php" method="post">
+	Search ID: <input type="text" name="item_id"/>
+	<input type="submit" /> 
+	</form>
+	
 <b><center>CRUD</center></b>
 <form method="post" action="index.php">
 <table align="center" border="0">
