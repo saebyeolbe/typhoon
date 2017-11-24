@@ -1,41 +1,18 @@
 <link href="colour.css" rel="stylesheet">
 <html>
-<body>  
+<body>
+<b><center>PRODUCTS</center></b>
 
 <?php
 $con = mysqli_connect("localhost","root","","swap"); //connect to database
 if (!$con){
 	die('Could not connect: ' . mysqli_connect_errno()); //return error is connect fail
 }
-$id = $_POST['prodid'];
-$name = $_POST['prodname'];
-$price = $_POST['prodprice'];
-$size = $_POST['prodsize'];
-$colour = $_POST['prodcolour'];
-$cat = $_POST['prodcat'];
-$quan = $_POST['prodquan'];
+?>
 
-$insertdata= $con->prepare("INSERT INTO products (`productID`,`productName`,`price`,`size`,`colour`,`category`,`quantity`) VALUES
-(?,?,?,?,?,?,?)");
-
-$insertdata->bind_param('sssssss',$id,$name,$price,$size,$colour,$cat,$quan); //bind the parameters
-if ($insertdata->execute())
-{  										//execute query
-  echo "<table align='center'>";
-  echo "<tr>";
-  echo "<th>Product successfully added.</th>";
-  echo "</tr>";
-}
-else
-{
-  echo "<table align='center'>";
-  echo "<tr>";
-  echo "<th>Items existed, Please re-enter again.</th>";
-  echo "</tr>";
-}
-
-
-$showprod=$con->prepare("select productID,productName,price,size,colour,category,quantity from products ");
+<?php
+$id=$_POST['idnum'];
+$showprod=$con->prepare("select * from products WHERE productID='". $id ."'");
 $showprod->execute();
 $showprod->bind_result($productID,$productName,$price,$size,$colour,$category,$quantity);
 echo "<table align='center' border='1'>";
@@ -64,10 +41,14 @@ while($showprod->fetch())
 echo "</table>";
 ?>
 
+<br>
 <table align='center'>
-<br><tr>
+<tr>
 <td> <a href="display_all.php"><button class="button" style="vertical-align:middle"><span>Back to home</span></button></td>
-</tr></table>
+</tr> </table>
 
 </body>
 </html>
+
+	
+	
